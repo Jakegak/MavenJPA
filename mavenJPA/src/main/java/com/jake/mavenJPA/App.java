@@ -12,11 +12,12 @@ public class App {
 		
 		entityManager.getTransaction().begin();
 		
-		Students s = new Students();
-		s.setAge(30);
-		s.setName("Jake");
+		Person p1 = new Person("Jake", "gakungajake@gmail.com");
+		Person p2 = new Person("Jacob", "gakungajacob7@gmail.com");
 		
-		entityManager.persist(s);
+		entityManager.persist(p1);
+		entityManager.persist(p2);
+		
 		entityManager.getTransaction().commit();
 		
 		entityManager.close();
