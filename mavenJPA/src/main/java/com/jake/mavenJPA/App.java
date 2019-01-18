@@ -10,16 +10,10 @@ public class App {
 		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("students");
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 		
-		entityManager.getTransaction().begin();
 		
-		Person p1 = new Person("Jake", "gakungajake@gmail.com");
-		Person p2 = new Person("Jacob", "gakungajacob7@gmail.com");
-		
-		entityManager.persist(p1);
-		entityManager.persist(p2);
-		
-		entityManager.getTransaction().commit();
-		
+		Person p = entityManager.find(Person.class, 1);
+		System.out.print(p);
+				
 		entityManager.close();
 		entityManagerFactory.close();
 		
