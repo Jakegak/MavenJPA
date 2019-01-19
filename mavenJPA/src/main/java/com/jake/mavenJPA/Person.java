@@ -5,9 +5,13 @@ import javax.persistence.Table;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 @Entity
 @Table(name = "Person")
+@NamedQueries({ @NamedQuery(name = "Person.getAll", query="SELECT p from Person p"),
+		        @NamedQuery(name = "Person.getname", query="SELECT p from Person p WHERE p.name = :name")})
 public class Person {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)

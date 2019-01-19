@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 
 public class App {
@@ -15,8 +16,9 @@ public class App {
 		
 		entityManager.getTransaction().begin();
 		
-		Query query = entityManager.createNativeQuery("SELECT * FROM person", Person.class);
-		List<Person> people = (List<Person>) query.getResultList();
+		TypedQuery<Person> query = entityManager.createNamedQuery("Person.getname", Person.class);
+		query.setParameter("name", "Jake");
+		List<Person> people = query.getResultList();
 		
 		for(Person p : people){
 			System.out.println(p);
