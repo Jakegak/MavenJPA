@@ -2,9 +2,10 @@ package com.jake.inheritance;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
-@DiscriminatorValue(value = "Bus")
+@PrimaryKeyJoinColumn(referencedColumnName="id")
 public class Bus extends Vehicle {
 
 	public int numberOfPassangers;
