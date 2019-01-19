@@ -1,11 +1,10 @@
 package com.jake.inheritance;
 
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
 
 @Entity
-@PrimaryKeyJoinColumn(referencedColumnName="id")
+@Table(name="Cars")
 public class Car extends Vehicle {
 
 	public int speed;
