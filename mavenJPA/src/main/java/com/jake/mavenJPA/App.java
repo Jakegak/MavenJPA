@@ -1,8 +1,11 @@
 package com.jake.mavenJPA;
 
 import javax.persistence.EntityManager;
+import java.util.List;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
+
 
 public class App {
 
@@ -12,11 +15,13 @@ public class App {
 		
 		entityManager.getTransaction().begin();
 		
-		Person p = entityManager.find(Person.class, 1);
-		entityManager.remove(p);
+		Query query = entityManager.createQuery("SELECT p FROM Person p");
+		List<Person> people = (List<Person>) query.getResultList();
 		
-		entityManager.getTransaction().commit();
-				
+		for(Person p : people){
+			System.out.println(p);
+		}
+		
 		entityManager.close();
 		entityManagerFactory.close();
 		
