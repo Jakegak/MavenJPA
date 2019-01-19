@@ -15,7 +15,7 @@ public class App {
 		
 		entityManager.getTransaction().begin();
 		
-		Query query = entityManager.createQuery("SELECT p FROM Person p");
+		Query query = entityManager.createNativeQuery("SELECT * FROM person", Person.class);
 		List<Person> people = (List<Person>) query.getResultList();
 		
 		for(Person p : people){
