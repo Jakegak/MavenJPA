@@ -11,21 +11,25 @@ public class App {
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 		
 		entityManager.getTransaction().begin();
+
+		University uni = new University("Middlesex");
 		
-		Employees emp = new Employees();
-		emp.setName("Carol");
-		Address add = new Address("Roasters", 22);
+		Student stud1 = new Student("Jacob");
+		stud1.setUniversity(uni);
+		Student stud2 = new Student("Joseph");
+		stud2.setUniversity(uni);
 		
-		add.setEmployee(emp);
-		emp.setAddress(add);
+		uni.addStudent(stud1);
+		uni.addStudent(stud2);
 		
-		entityManager.persist(emp);
-		entityManager.persist(add);
+
+		entityManager.persist(uni);
+		entityManager.persist(stud1);
+		entityManager.persist(stud2);
 		
 		entityManager.getTransaction().commit();
 		
 		entityManager.close();
 		entityManagerFactory.close();
-
 	}
 }
