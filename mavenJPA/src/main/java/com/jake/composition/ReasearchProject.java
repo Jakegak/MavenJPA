@@ -57,6 +57,7 @@ public class ReasearchProject {
 	public List<Professor> getProfessor() {
 		return professor;
 	}
+	
 
 	public void setProfessor(List<Professor> professor) {
 		this.professor = professor;
