@@ -12,11 +12,11 @@ public class AppRP {
 		
 		entityManager.getTransaction().begin();
 		
-		ReasearchProject research1 = new ReasearchProject("Survey portal");
-		ReasearchProject research2 = new ReasearchProject("AAL");
+		ReasearchProject research1 = new ReasearchProject("Hospital system");
+		ReasearchProject research2 = new ReasearchProject("School system");
 		
-		Professor professor1 = new Professor("Ken");
-		Professor professor2 = new Professor("Nyanjui");
+		Professor professor1 = new Professor("Steve");
+		Professor professor2 = new Professor("Mike");
 		
 		research1.assignProfessorToProject(professor1);
 		research2.assignProfessorToProject(professor2);
@@ -28,6 +28,8 @@ public class AppRP {
 		entityManager.persist(research2);
 		entityManager.persist(professor1);
 		entityManager.persist(professor2);
+		
+		entityManager.remove(professor1);
 		
 		entityManager.getTransaction().commit();
 		
